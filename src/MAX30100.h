@@ -59,8 +59,8 @@ typedef enum{
 
 class MAX30100 {
 public:
-  uint16_t HR = 0;      // Last heart rate datapoint
-  uint16_t SPO2 = 0;    // Last oximetry datapoint
+  uint16_t IR = 0;      // Last IR reflectance datapoint
+  uint16_t RED = 0;     // Last Red reflectance datapoint
 
   MAX30100();
   void  setLEDs(pulseWidth pw, ledCurrent red, ledCurrent ir);  // Sets the LED state

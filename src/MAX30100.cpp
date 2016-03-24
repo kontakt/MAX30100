@@ -37,8 +37,8 @@ int MAX30100::getNumSamp(void){
 void MAX30100::readSensor(void){
   uint8_t temp[4] = {0};  // Temporary buffer for read values
   I2CreadBytes(MAX30100_ADDRESS, MAX30100_FIFO_DATA, &temp[0], 4);  // Read four times from the FIFO
-  HR = (temp[0]<<8) | temp[1];    // Combine values to get the actual number
-  SPO2 = (temp[2]<<8) | temp[3];  // Combine values to get the actual number
+  IR = (temp[0]<<8) | temp[1];    // Combine values to get the actual number
+  RED = (temp[2]<<8) | temp[3];   // Combine values to get the actual number
 }
 
 void MAX30100::shutdown(void){

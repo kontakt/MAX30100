@@ -1,4 +1,4 @@
-#include "MAX30100.h"  
+#include "MAX30100.h"
 #include <Wire.h>
 
 MAX30100 sensor;
@@ -11,8 +11,8 @@ void setup() {
 }
 
 void loop() {
-  sensor.readSensor();  
-  Serial.println(runningAverage(sensor.HR));
+  sensor.readSensor();
+  Serial.println(runningAverage(sensor.IR));
   delay(10);
 }
 
