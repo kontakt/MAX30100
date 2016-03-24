@@ -12,16 +12,17 @@ void setup() {
 
 void loop() {
   sensor.readSensor();
-  Serial.println(runningAverage(sensor.IR));
+  Serial.println(meanDiff(sensor.IR));
   delay(10);
 }
 
-long runningAverage(int M) {
+long meanDiff(int M) {
   #define LM_SIZE 15
   static int LM[LM_SIZE];      // LastMeasurements
   static byte index = 0;
   static long sum = 0;
   static byte count = 0;
+  long avg = 0;
 
   // keep sum updated to improve speed.
   sum -= LM[index];
@@ -31,5 +32,6 @@ long runningAverage(int M) {
   index = index % LM_SIZE;
   if (count < LM_SIZE) count++;
 
-  return sum / count;
+  avg = sum / count;
+  return avg - M;
 }
