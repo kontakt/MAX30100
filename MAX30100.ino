@@ -7,7 +7,7 @@ void setup() {
   Wire.begin();
   Serial.begin(115200);
   while(!Serial);
-  sensor.begin(pw1600, i4, sr100 );
+  sensor.begin(pw1600, i50, sr100 );
 }
 
 void loop() {
