@@ -1,4 +1,4 @@
-# MAX30100
+# MAX30100 [![Build Status](https://travis-ci.org/kontakt/MAX30100.svg?branch=master)](https://travis-ci.org/kontakt/MAX30100)
 A library for the Maxim MAX30100 pulse oximetry chip
 
 This library is designed to interface with the MAXIM MAX30100 Heart Rate and SpO2 sensor chip.
