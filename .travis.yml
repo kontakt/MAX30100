@@ -14,4 +14,4 @@ install:
     - pip install -U platformio
 
 script:
-    - platformio ci --lib="." --board=uno
+    - platformio ci --board=teensy31 --board=due --board=uno --lib="."
