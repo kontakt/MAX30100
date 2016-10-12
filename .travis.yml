@@ -1,0 +1,17 @@
+language: python
+python:
+    - "2.7"
+
+sudo: false
+cache:
+    directories:
+        - "~/.platformio"
+
+env:
+    - PLATFORMIO_CI_SRC=examples
+
+install:
+    - pip install -U platformio
+
+script:
+    - platformio ci --board=teensy31 --board=due --board=uno --lib="."
