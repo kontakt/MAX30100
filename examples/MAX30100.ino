@@ -2,7 +2,7 @@
 #include <Wire.h>
 
 MAX30100 sensor;
-const byte interruptPin = 2;
+const byte interruptPin = 2;	// Pin configuration for Uno/Nano
 bool newValue = false;
 
 void setup() {
