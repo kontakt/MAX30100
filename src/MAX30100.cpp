@@ -28,6 +28,11 @@ void MAX30100::setSPO2(sampleRate sr){
   I2CwriteByte(MAX30100_ADDRESS, MAX30100_SPO2_CONFIG, reg | 0x03); // Mask MODE
 }
 
+void MAX30100::setInterrupt(interruptSource intsrc){
+  I2CwriteByte(MAX30100_ADDRESS, MAX30100_INT_ENABLE, ((intsrc + 1)<<4));
+  I2CreadByte(MAX30100_ADDRESS, MAX30100_INT_STATUS);
+}
+
 int MAX30100::getNumSamp(void){
     uint8_t wrPtr = I2CreadByte(MAX30100_ADDRESS, MAX30100_FIFO_WR_PTR);
     uint8_t rdPtr = I2CreadByte(MAX30100_ADDRESS, MAX30100_FIFO_RD_PTR);
