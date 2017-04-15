@@ -40,6 +40,13 @@ typedef enum{
 }sampleRate;
 
 typedef enum{
+  so2,	// SO2 interrupt
+  hr,	// Heart-rate interrupt
+  temp,	// Temperature interrupt
+  full,	// FIFO full interrupt
+}interruptSource;
+
+typedef enum{
   i0,    // No current
   i4,    // 4.4mA
   i8,    // 7.6mA
@@ -65,6 +72,7 @@ public:
   MAX30100();
   void  setLEDs(pulseWidth pw, ledCurrent red, ledCurrent ir);  // Sets the LED state
   void  setSPO2(sampleRate sr); // Setup the SPO2 sensor, disabled by default
+  void  setInterrupt(interruptSource intsrc);	// Set interrupts
   int   getNumSamp(void);       // Get number of samples
   void  readSensor(void);       // Updates the values
   void  shutdown(void);   // Instructs device to power-save
