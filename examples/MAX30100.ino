@@ -2,18 +2,29 @@
 #include <Wire.h>
 
 MAX30100 sensor;
+const byte interruptPin = 2;
+bool newValue = false;
 
 void setup() {
   Wire.begin();
   Serial.begin(115200);
-  while(!Serial);
-  sensor.begin(pw1600, i50, sr100 );
+  while (!Serial);
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), doInterrupt, FALLING);
+  sensor.begin(pw1600, i50, sr100);
+  sensor.setInterrupt(hr);
+}
+
+void doInterrupt() {
+  newValue = true;
 }
 
 void loop() {
-  sensor.readSensor();
-  Serial.println(meanDiff(sensor.IR));
-  delay(10);
+  if (newValue == true) {
+    sensor.readSensor();
+    Serial.println(meanDiff(sensor.IR));
+    newValue = false;
+  }
 }
 
 long meanDiff(int M) {
