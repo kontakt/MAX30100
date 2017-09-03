@@ -8,7 +8,8 @@ cache:
         - "~/.platformio"
 
 env:
-    - PLATFORMIO_CI_SRC=examples
+    - PLATFORMIO_CI_SRC=examples/MAX30100
+    - PLATFORMIO_CI_SRC=examples/MAX30100_hr-interrupt
 
 install:
     - pip install -U platformio
